@@ -5,233 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Blaugrana - Состав команды</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-        }
-
-        body {
-            background: linear-gradient(145deg, #0a0f1e 0%, #181c2e 100%);
-            min-height: 100vh;
-            padding: 15px;
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            background: #fefefe;
-            border-radius: 30px;
-            padding: 20px;
-            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(206, 165, 58, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: linear-gradient(90deg, #004d98 0%, #a50044 50%, #edbb00 100%);
-        }
-
-        /* Меню навигации */
-        .nav-menu {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .nav-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #a50044;
-            color: #edbb00;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            border: 2px solid #edbb00;
-            transition: all 0.3s;
-            flex: 0 1 auto;
-            text-align: center;
-        }
-
-        .nav-link.active {
-            background: #004d98;
-            box-shadow: 0 3px 0 #a50044;
-        }
-
-        .team-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .team-name {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 900;
-            background: linear-gradient(135deg, #004d98 0%, #a50044 80%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 3px 3px 0 rgba(237, 187, 0, 0.2);
-            margin-bottom: 5px;
-            line-height: 1.2;
-        }
-
-        .team-motto {
-            font-size: clamp(1.2rem, 4vw, 1.8rem);
-            font-weight: 500;
-            color: #edbb00;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-shadow: 1px 1px 0 rgba(0, 77, 152, 0.5);
-        }
-
-        .section-title-wrapper {
-            margin: 30px 0 20px;
-        }
-
-        .section-title {
-            font-size: clamp(1.6rem, 5vw, 2.2rem);
-            font-weight: 700;
-            color: #edbb00;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            display: inline-block;
-            text-shadow: 2px 2px 0 rgba(0, 77, 152, 0.3);
-        }
-
-        .stripes {
-            width: 100%;
-            height: 5px;
-            display: flex;
-            margin-top: 5px;
-        }
-
-        .stripe-blue {
-            height: 100%;
-            width: 50%;
-            background-color: #004d98;
-        }
-
-        .stripe-red {
-            height: 100%;
-            width: 50%;
-            background-color: #a50044;
-        }
-
-        .players-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px;
-        }
-
-        .player-card {
-            background: #1a1a2e;
-            border-radius: 20px;
-            padding: 15px;
-            transition: all 0.3s ease;
-            border: 1px solid #333;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-        }
-
-        .player-card:hover {
-            transform: translateY(-3px);
-            border-color: #edbb00;
-            box-shadow: 0 15px 30px rgba(0,77,152,0.4);
-        }
-
-        .player-card a {
-            text-decoration: none;
-            color: white;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .player-info {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-
-        .player-position-card {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            color: #a0a0a0;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        .player-name-card {
-            font-size: clamp(1.3rem, 4vw, 1.8rem);
-            font-weight: 700;
-            color: white;
-            line-height: 1.2;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .player-name-card span {
-            display: block;
-        }
-
-        .player-number {
-            width: 60px;
-            height: 60px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            font-weight: 800;
-            color: #edbb00;
-            border: 2px solid #edbb00;
-            box-shadow: 0 0 15px rgba(237,187,0,0.3);
-            flex-shrink: 0;
-            margin-left: 10px;
-        }
-
-        /* Адаптация для совсем маленьких экранов */
-        @media (max-width: 400px) {
-            .nav-link {
-                padding: 8px 12px;
-                font-size: 0.85rem;
-            }
-            
-            .player-card {
-                padding: 12px;
-            }
-            
-            .player-number {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
-            }
-        }
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,'Helvetica Neue',sans-serif;}
+        body{background:linear-gradient(145deg,#0a0f1e 0%,#181c2e 100%);min-height:100vh;padding:15px;transition:background 0.3s, color 0.3s;}
+        body.dark-theme{background:#0a0a0a;}.container{max-width:1300px;margin:0 auto;background:#fefefe;border-radius:30px;padding:20px;box-shadow:0 30px 50px rgba(0,0,0,0.5);border:1px solid rgba(206,165,58,0.4);position:relative;overflow:hidden;transition:background 0.3s;}.dark-theme .container{background:#1a1a1a;border-color:#444;}.container::before{content:'';position:absolute;top:0;left:0;width:100%;height:8px;background:linear-gradient(90deg,#004d98 0%,#a50044 50%,#edbb00 100%);}.dark-theme .container::before{opacity:0.8;}.nav-menu{display:flex;gap:10px;margin-bottom:25px;flex-wrap:wrap;justify-content:space-between;align-items:center;}.nav-links{display:flex;gap:10px;flex-wrap:wrap;}.nav-link{display:inline-block;padding:10px 20px;background:#a50044;color:#edbb00;text-decoration:none;border-radius:50px;font-weight:700;font-size:0.95rem;border:2px solid #edbb00;transition:all 0.3s;}.nav-link.active{background:#004d98;box-shadow:0 3px 0 #a50044;}.dark-theme .nav-link{background:#333;border-color:#666;color:#ffd700;}.dark-theme .nav-link.active{background:#004d98;border-color:#ffd700;}.theme-toggle{background:none;border:2px solid #edbb00;color:#edbb00;font-size:1.5rem;cursor:pointer;padding:5px 15px;border-radius:50px;transition:all 0.3s;}.dark-theme .theme-toggle{border-color:#ffd700;color:#ffd700;}.theme-toggle:hover{background:#edbb00;color:#0a0f1e;}.dark-theme .theme-toggle:hover{background:#ffd700;color:#000;}.team-header{text-align:center;margin-bottom:30px;}.team-name{font-size:clamp(2.5rem,8vw,4.5rem);font-weight:900;background:linear-gradient(135deg,#004d98 0%,#a50044 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase;letter-spacing:3px;text-shadow:3px 3px 0 rgba(237,187,0,0.2);margin-bottom:5px;line-height:1.2;}.dark-theme .team-name{background:linear-gradient(135deg,#0066cc 0%,#cc0055 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:3px 3px 0 rgba(255,215,0,0.3);}.team-motto{font-size:clamp(1.2rem,4vw,1.8rem);font-weight:500;color:#edbb00;letter-spacing:2px;text-transform:uppercase;text-shadow:1px 1px 0 rgba(0,77,152,0.5);}.dark-theme .team-motto{color:#ffd700;}.section-title-wrapper{margin:30px 0 20px;}.section-title{font-size:clamp(1.6rem,5vw,2.2rem);font-weight:700;color:#edbb00;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:inline-block;text-shadow:2px 2px 0 rgba(0,77,152,0.3);}.dark-theme .section-title{color:#ffd700;}.stripes{width:100%;height:5px;display:flex;margin-top:5px;}.stripe-blue{height:100%;width:50%;background-color:#004d98;}.stripe-red{height:100%;width:50%;background-color:#a50044;}.players-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:15px;}.player-card{background:#1a1a2e;border-radius:20px;padding:15px;transition:all 0.3s ease;border:1px solid #333;box-shadow:0 10px 20px rgba(0,0,0,0.3);display:flex;align-items:center;}.dark-theme .player-card{background:#2a2a2a;border-color:#555;}.player-card:hover{transform:translateY(-3px);border-color:#edbb00;box-shadow:0 15px 30px rgba(0,77,152,0.4);}.player-card a{text-decoration:none;color:white;width:100%;display:flex;justify-content:space-between;align-items:center;}.player-info{display:flex;flex-direction:column;flex:1;}.player-position-card{font-size:0.8rem;text-transform:uppercase;color:#a0a0a0;letter-spacing:1px;margin-bottom:5px;}.player-name-card{font-size:clamp(1.3rem,4vw,1.8rem);font-weight:700;color:white;line-height:1.2;display:flex;flex-direction:column;}.player-name-card span{display:block;}.player-number{width:60px;height:60px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:800;color:#edbb00;border:2px solid #edbb00;box-shadow:0 0 15px rgba(237,187,0,0.3);flex-shrink:0;margin-left:10px;}.dark-theme .player-number{color:#ffd700;border-color:#ffd700;}.footer{text-align:center;color:#a0a0a0;margin-top:40px;padding-top:20px;border-top:1px solid #333;font-size:0.9rem;}.dark-theme .footer{color:#888;border-color:#444;}@media(max-width:400px){.nav-menu{flex-direction:column;}.nav-links{justify-content:center;}.theme-toggle{width:100%;}.nav-link{padding:8px 12px;font-size:0.85rem;}.player-card{padding:12px;}.player-number{width:50px;height:50px;font-size:1.3rem;}}
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Меню навигации -->
         <div class="nav-menu">
-            <a href="index.html" class="nav-link active">СОСТАВ</a>
-            <a href="about.html" class="nav-link">О КОМАНДЕ</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">СОСТАВ</a>
+                <a href="about.html" class="nav-link">О КОМАНДЕ</a>
+            </div>
+            <button class="theme-toggle" onclick="document.body.classList.toggle('dark-theme')">🌙</button>
         </div>
 
         <div class="team-header">
@@ -240,13 +26,7 @@
         </div>
 
         <!-- Нападающие -->
-        <div class="section-title-wrapper">
-            <div class="section-title">Нападающие</div>
-            <div class="stripes">
-                <div class="stripe-blue"></div>
-                <div class="stripe-red"></div>
-            </div>
-        </div>
+        <div class="section-title-wrapper"><div class="section-title">Нападающие</div><div class="stripes"><div class="stripe-blue"></div><div class="stripe-red"></div></div></div>
         <div class="players-grid">
             <div class="player-card"><a href="dogramadzhyan_tigran.html"><div class="player-info"><div class="player-position-card">FORWARD</div><div class="player-name-card"><span>Тигран</span><span>Дограмаджян</span></div></div><div class="player-number">10</div></a></div>
             <div class="player-card"><a href="barnagyan_vladimir.html"><div class="player-info"><div class="player-position-card">FORWARD</div><div class="player-name-card"><span>Владимир</span><span>Барнагян</span></div></div><div class="player-number">11</div></a></div>
@@ -257,13 +37,7 @@
         </div>
 
         <!-- Полузащитники -->
-        <div class="section-title-wrapper">
-            <div class="section-title">Полузащитники</div>
-            <div class="stripes">
-                <div class="stripe-blue"></div>
-                <div class="stripe-red"></div>
-            </div>
-        </div>
+        <div class="section-title-wrapper"><div class="section-title">Полузащитники</div><div class="stripes"><div class="stripe-blue"></div><div class="stripe-red"></div></div></div>
         <div class="players-grid">
             <div class="player-card"><a href="gizgizyan_markos.html"><div class="player-info"><div class="player-position-card">MIDFIELDER</div><div class="player-name-card"><span>Маркос</span><span>Гизгизян</span></div></div><div class="player-number">--</div></a></div>
             <div class="player-card"><a href="yurchenko_tigran.html"><div class="player-info"><div class="player-position-card">MIDFIELDER</div><div class="player-name-card"><span>Тигран</span><span>Юрченко</span></div></div><div class="player-number">17</div></a></div>
@@ -272,13 +46,7 @@
         </div>
 
         <!-- Защитники -->
-        <div class="section-title-wrapper">
-            <div class="section-title">Защитники</div>
-            <div class="stripes">
-                <div class="stripe-blue"></div>
-                <div class="stripe-red"></div>
-            </div>
-        </div>
+        <div class="section-title-wrapper"><div class="section-title">Защитники</div><div class="stripes"><div class="stripe-blue"></div><div class="stripe-red"></div></div></div>
         <div class="players-grid">
             <div class="player-card"><a href="aslanyan_aleksandr.html"><div class="player-info"><div class="player-position-card">DEFENDER</div><div class="player-name-card"><span>Александр</span><span>Асланян</span></div></div><div class="player-number">3</div></a></div>
             <div class="player-card"><a href="kovalenko_dmitry.html"><div class="player-info"><div class="player-position-card">DEFENDER</div><div class="player-name-card"><span>Дмитрий</span><span>Коваленко</span></div></div><div class="player-number">16</div></a></div>
@@ -288,17 +56,14 @@
         </div>
 
         <!-- Вратари -->
-        <div class="section-title-wrapper">
-            <div class="section-title">Вратари</div>
-            <div class="stripes">
-                <div class="stripe-blue"></div>
-                <div class="stripe-red"></div>
-            </div>
-        </div>
+        <div class="section-title-wrapper"><div class="section-title">Вратари</div><div class="stripes"><div class="stripe-blue"></div><div class="stripe-red"></div></div></div>
         <div class="players-grid">
             <div class="player-card"><a href="khatlamadzhiyan_dzaruk.html"><div class="player-info"><div class="player-position-card">GOALKEEPER</div><div class="player-name-card"><span>Дзарук</span><span>Хатламаджиян</span></div></div><div class="player-number">1</div></a></div>
             <div class="player-card"><a href="srabionyan_ovanes_gk.html"><div class="player-info"><div class="player-position-card">GOALKEEPER</div><div class="player-name-card"><span>Ованес</span><span>Срабионян</span></div></div><div class="player-number">99</div></a></div>
         </div>
+
+        <div class="footer">© 2025 Blaugrana</div>
     </div>
+    <script>if(localStorage.getItem('theme')==='dark')document.body.classList.add('dark-theme');document.querySelector('.theme-toggle').addEventListener('click',function(){document.body.classList.toggle('dark-theme');localStorage.setItem('theme',document.body.classList.contains('dark-theme')?'dark':'light');});</script>
 </body>
 </html>
