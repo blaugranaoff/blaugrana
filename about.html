@@ -43,7 +43,6 @@
             background: linear-gradient(90deg, #004d98 0%, #a50044 50%, #edbb00 100%);
         }
 
-        /* Меню навигации */
         .nav-menu {
             display: flex;
             gap: 10px;
@@ -74,8 +73,6 @@
 
         .team-photo {
             width: 100%;
-            height: auto;
-            min-height: 180px;
             background: linear-gradient(145deg, #004d98, #a50044);
             border-radius: 25px;
             margin-bottom: 25px;
@@ -84,18 +81,34 @@
             justify-content: center;
             border: 3px solid #edbb00;
             box-shadow: 0 0 30px rgba(237,187,0,0.3);
-            padding: 30px 15px;
+            padding: 40px 15px;
+            min-height: 180px;
         }
 
         .team-name {
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2.5rem, 10vw, 5rem);
             font-weight: 900;
             color: #edbb00;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
             text-shadow: 3px 3px 0 #004d98, 6px 6px 0 #a50044;
             text-align: center;
-            word-break: break-word;
+            white-space: nowrap; /* Запрещаем перенос */
+            overflow-x: auto;    /* Если совсем не влезает, появится прокрутка */
+            max-width: 100%;
+            padding: 0 5px;
+        }
+
+        /* Для очень маленьких экранов разрешаем прокрутку */
+        @media (max-width: 400px) {
+            .team-name {
+                font-size: 2.8rem;
+                letter-spacing: 1px;
+                white-space: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 5px;
+            }
         }
 
         .info-cards {
@@ -220,7 +233,6 @@
             transform: translateY(-2px);
         }
 
-        /* Заглушки для пустых разделов */
         .empty-state {
             min-height: 80px;
             display: flex;
@@ -244,8 +256,7 @@
             }
             
             .team-photo {
-                min-height: 150px;
-                padding: 20px 10px;
+                padding: 30px 10px;
             }
             
             .social-link {
@@ -256,7 +267,6 @@
 </head>
 <body>
     <div class="about-container">
-        <!-- Меню навигации -->
         <div class="nav-menu">
             <a href="index.html" class="nav-link">СОСТАВ</a>
             <a href="about.html" class="nav-link active">О КОМАНДЕ</a>
@@ -273,7 +283,7 @@
             </div>
             <div class="info-card">
                 <div class="info-label">Цвета клуба</div>
-                <div class="info-value">🔵🔴 ⚫</div>
+                <div class="info-value">🔵🔴</div>
             </div>
             <div class="info-card">
                 <div class="info-label">Девиз</div>
