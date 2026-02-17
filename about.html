@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Blaugrana - Состав команды</title>
+    <title>О команде - Blaugrana</title>
     <style>
         * {
             margin: 0;
@@ -16,21 +16,24 @@
             background: linear-gradient(145deg, #0a0f1e 0%, #181c2e 100%);
             min-height: 100vh;
             padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            background: #fefefe;
+        .about-container {
+            max-width: 1000px;
+            width: 100%;
+            background: #1a1a2e;
             border-radius: 30px;
-            padding: 20px;
+            padding: 25px 20px;
             box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(206, 165, 58, 0.4);
+            border: 1px solid #333;
             position: relative;
             overflow: hidden;
         }
 
-        .container::before {
+        .about-container::before {
             content: '';
             position: absolute;
             top: 0;
@@ -69,235 +72,234 @@
             box-shadow: 0 3px 0 #a50044;
         }
 
-        .team-header {
-            text-align: center;
-            margin-bottom: 30px;
+        .team-photo {
+            width: 100%;
+            height: auto;
+            min-height: 180px;
+            background: linear-gradient(145deg, #004d98, #a50044);
+            border-radius: 25px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #edbb00;
+            box-shadow: 0 0 30px rgba(237,187,0,0.3);
+            padding: 30px 15px;
         }
 
         .team-name {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 900;
-            background: linear-gradient(135deg, #004d98 0%, #a50044 80%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 3px 3px 0 rgba(237, 187, 0, 0.2);
-            margin-bottom: 5px;
-            line-height: 1.2;
-        }
-
-        .team-motto {
-            font-size: clamp(1.2rem, 4vw, 1.8rem);
-            font-weight: 500;
-            color: #edbb00;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-shadow: 1px 1px 0 rgba(0, 77, 152, 0.5);
-        }
-
-        .section-title-wrapper {
-            margin: 30px 0 20px;
-        }
-
-        .section-title {
-            font-size: clamp(1.6rem, 5vw, 2.2rem);
-            font-weight: 700;
             color: #edbb00;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            display: inline-block;
-            text-shadow: 2px 2px 0 rgba(0, 77, 152, 0.3);
+            letter-spacing: 4px;
+            text-shadow: 3px 3px 0 #004d98, 6px 6px 0 #a50044;
+            text-align: center;
+            word-break: break-word;
         }
 
-        .stripes {
-            width: 100%;
-            height: 5px;
-            display: flex;
-            margin-top: 5px;
-        }
-
-        .stripe-blue {
-            height: 100%;
-            width: 50%;
-            background-color: #004d98;
-        }
-
-        .stripe-red {
-            height: 100%;
-            width: 50%;
-            background-color: #a50044;
-        }
-
-        .players-grid {
+        .info-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 15px;
+            margin-bottom: 25px;
         }
 
-        .player-card {
-            background: #1a1a2e;
-            border-radius: 20px;
-            padding: 15px;
-            transition: all 0.3s ease;
+        .info-card {
+            background: rgba(255,255,255,0.03);
             border: 1px solid #333;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
+            border-radius: 20px;
+            padding: 20px 10px;
+            text-align: center;
+            transition: all 0.3s;
         }
 
-        .player-card:hover {
-            transform: translateY(-3px);
+        .info-card:hover {
             border-color: #edbb00;
-            box-shadow: 0 15px 30px rgba(0,77,152,0.4);
+            transform: translateY(-3px);
+            background: rgba(0,77,152,0.2);
         }
 
-        .player-card a {
-            text-decoration: none;
-            color: white;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .player-info {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-
-        .player-position-card {
+        .info-label {
             font-size: 0.8rem;
             text-transform: uppercase;
             color: #a0a0a0;
             letter-spacing: 1px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
-        .player-name-card {
-            font-size: clamp(1.3rem, 4vw, 1.8rem);
+        .info-value {
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
             font-weight: 700;
-            color: white;
-            line-height: 1.2;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .player-name-card span {
-            display: block;
-        }
-
-        .player-number {
-            width: 60px;
-            height: 60px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            font-weight: 800;
             color: #edbb00;
-            border: 2px solid #edbb00;
-            box-shadow: 0 0 15px rgba(237,187,0,0.3);
-            flex-shrink: 0;
-            margin-left: 10px;
+            word-break: break-word;
         }
 
-        /* Адаптация для совсем маленьких экранов */
-        @media (max-width: 400px) {
+        .section-title {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 700;
+            color: #edbb00;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 30px 0 15px;
+            border-bottom: 2px solid #a50044;
+            padding-bottom: 8px;
+        }
+
+        .tournaments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .tournament-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 20px 12px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .tournament-card:hover {
+            border-color: #edbb00;
+            transform: translateY(-3px);
+            background: rgba(165,0,68,0.15);
+        }
+
+        .tournament-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .tournament-year {
+            color: #edbb00;
+            font-size: 0.95rem;
+        }
+
+        .history-text {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 25px 20px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid #333;
+            border-radius: 50px;
+            padding: 12px 30px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            flex: 0 1 auto;
+            text-align: center;
+        }
+
+        .social-link:hover {
+            background: #edbb00;
+            color: #0a0f1e;
+            border-color: #edbb00;
+            transform: translateY(-2px);
+        }
+
+        /* Заглушки для пустых разделов */
+        .empty-state {
+            min-height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #a0a0a0;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        @media (max-width: 480px) {
             .nav-link {
-                padding: 8px 12px;
+                padding: 8px 15px;
                 font-size: 0.85rem;
             }
             
-            .player-card {
-                padding: 12px;
+            .info-cards {
+                grid-template-columns: 1fr;
             }
             
-            .player-number {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
+            .team-photo {
+                min-height: 150px;
+                padding: 20px 10px;
+            }
+            
+            .social-link {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="about-container">
         <!-- Меню навигации -->
         <div class="nav-menu">
-            <a href="index.html" class="nav-link active">СОСТАВ</a>
-            <a href="about.html" class="nav-link">О КОМАНДЕ</a>
+            <a href="index.html" class="nav-link">СОСТАВ</a>
+            <a href="about.html" class="nav-link active">О КОМАНДЕ</a>
         </div>
 
-        <div class="team-header">
+        <div class="team-photo">
             <div class="team-name">Blaugrana</div>
-            <div class="team-motto">Més que un club</div>
         </div>
 
-        <!-- Нападающие -->
-        <div class="section-title-wrapper">
-            <div class="section-title">Нападающие</div>
-            <div class="stripes">
-                <div class="stripe-blue"></div>
-                <div class="stripe-red"></div>
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="info-label">Год основания</div>
+                <div class="info-value">2025</div>
             </div>
-        </div>
-        <div class="players-grid">
-            <div class="player-card"><a href="dogramadzhyan_tigran.html"><div class="player-info"><div class="player-position-card">FORWARD</div><div class="player-name-card"><span>Тигран</span><span>Дограмаджян</span></div></div><div class="player-number">10</div></a></div>
-            <div class="player-card"><a href="barnagyan_vladimir.html"><div class="player-info"><div class="player-position-card">FORWARD</div><div class="player-name-card"><span>Владимир</span><span>Барнагян</span></div></div><div class="player-number">11</div></a></div>
-            <div class="player-card"><a href="avdalyan_aram.html"><div class="player-info"><div class="player-position-card">FORWARD</div><div class="player-name-card"><span>Арам</span><span>Авдалян</span></div></div><div class="player-number">--</div></a></div>
-            <div class="player-card"><a href="kazaryan_gagik.html"><div class="player-info"><div class="player-position-card">FORWARD</div><div class="player-name-card"><span>Гагик</span><span>Казарян</span></div></div><div class="player-number">9</div></a></div>
-            <div class="player-card"><a href="chebotaryov_vsevolod.html"><div class="player-info"><div class="player-position-card">FORWARD</div><div class="player-name-card"><span>Всеволод</span><span>Чеботарёв</span></div></div><div class="player-number">--</div></a></div>
-            <div class="player-card"><a href="velyan_vladimir.html"><div class="player-info"><div class="player-position-card">FORWARD</div><div class="player-name-card"><span>Владимир</span><span>Велян</span></div></div><div class="player-number">7</div></a></div>
+            <div class="info-card">
+                <div class="info-label">Цвета клуба</div>
+                <div class="info-value">🔵🔴 ⚫</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Девиз</div>
+                <div class="info-value">Més que un club</div>
+            </div>
         </div>
 
-        <!-- Полузащитники -->
-        <div class="section-title-wrapper">
-            <div class="section-title">Полузащитники</div>
-            <div class="stripes">
-                <div class="stripe-blue"></div>
-                <div class="stripe-red"></div>
-            </div>
-        </div>
-        <div class="players-grid">
-            <div class="player-card"><a href="gizgizyan_markos.html"><div class="player-info"><div class="player-position-card">MIDFIELDER</div><div class="player-name-card"><span>Маркос</span><span>Гизгизян</span></div></div><div class="player-number">--</div></a></div>
-            <div class="player-card"><a href="yurchenko_tigran.html"><div class="player-info"><div class="player-position-card">MIDFIELDER</div><div class="player-name-card"><span>Тигран</span><span>Юрченко</span></div></div><div class="player-number">17</div></a></div>
-            <div class="player-card"><a href="avdalyan_samvel.html"><div class="player-info"><div class="player-position-card">MIDFIELDER</div><div class="player-name-card"><span>Самвел</span><span>Авдалян</span></div></div><div class="player-number">--</div></a></div>
-            <div class="player-card"><a href="khatlamadzhiyan_mnatsagan.html"><div class="player-info"><div class="player-position-card">MIDFIELDER</div><div class="player-name-card"><span>Мнацаган</span><span>Хатламаджиян</span></div></div><div class="player-number">--</div></a></div>
+        <div class="section-title">🏆 Достижения</div>
+        <div class="empty-state">
+            Пока нет достижений
         </div>
 
-        <!-- Защитники -->
-        <div class="section-title-wrapper">
-            <div class="section-title">Защитники</div>
-            <div class="stripes">
-                <div class="stripe-blue"></div>
-                <div class="stripe-red"></div>
-            </div>
-        </div>
-        <div class="players-grid">
-            <div class="player-card"><a href="aslanyan_aleksandr.html"><div class="player-info"><div class="player-position-card">DEFENDER</div><div class="player-name-card"><span>Александр</span><span>Асланян</span></div></div><div class="player-number">3</div></a></div>
-            <div class="player-card"><a href="kovalenko_dmitry.html"><div class="player-info"><div class="player-position-card">DEFENDER</div><div class="player-name-card"><span>Дмитрий</span><span>Коваленко</span></div></div><div class="player-number">16</div></a></div>
-            <div class="player-card"><a href="karotkiyan_arshalus.html"><div class="player-info"><div class="player-position-card">DEFENDER</div><div class="player-name-card"><span>Аршалуйс</span><span>Кароткиян</span></div></div><div class="player-number">--</div></a></div>
-            <div class="player-card"><a href="tashchiyan_yury.html"><div class="player-info"><div class="player-position-card">DEFENDER</div><div class="player-name-card"><span>Юрий</span><span>Тащиян</span></div></div><div class="player-number">--</div></a></div>
-            <div class="player-card"><a href="khatlamadzhiyan_fyodor.html"><div class="player-info"><div class="player-position-card">DEFENDER</div><div class="player-name-card"><span>Фёдор</span><span>Хатламаджиян</span></div></div><div class="player-number">2</div></a></div>
+        <div class="section-title">📋 Турниры</div>
+        <div class="empty-state">
+            Список турниров появится позже
         </div>
 
-        <!-- Вратари -->
-        <div class="section-title-wrapper">
-            <div class="section-title">Вратари</div>
-            <div class="stripes">
-                <div class="stripe-blue"></div>
-                <div class="stripe-red"></div>
-            </div>
+        <div class="section-title">📖 История команды</div>
+        <div class="history-text">
+            <p>Футбольная команда Blaugrana была основана в 2025 году группой друзей, объединённых любовью к футболу и философии "Més que un club".</p>
+            <p style="margin-top: 15px;">Мы стремимся к красивой игре, уважению к сопернику и постоянному развитию. Blaugrana — это больше, чем команда. Это семья.</p>
         </div>
-        <div class="players-grid">
-            <div class="player-card"><a href="khatlamadzhiyan_dzaruk.html"><div class="player-info"><div class="player-position-card">GOALKEEPER</div><div class="player-name-card"><span>Дзарук</span><span>Хатламаджиян</span></div></div><div class="player-number">1</div></a></div>
-            <div class="player-card"><a href="srabionyan_ovanes_gk.html"><div class="player-info"><div class="player-position-card">GOALKEEPER</div><div class="player-name-card"><span>Ованес</span><span>Срабионян</span></div></div><div class="player-number">99</div></a></div>
+
+        <div class="section-title">📱 Мы в соцсетях</div>
+        <div class="social-links">
+            <a href="#" class="social-link">Telegram</a>
         </div>
     </div>
 </body>
