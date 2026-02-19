@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Blaugrana vs Black Wolf - Отчёт</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,'Helvetica Neue',sans-serif;}
+        body{background:linear-gradient(145deg,#0a0f1e 0%,#181c2e 100%);min-height:100vh;padding:15px;display:flex;justify-content:center;align-items:center;}
+        .report-container{max-width:900px;width:100%;background:#1a1a2e;border-radius:30px;padding:25px 20px;box-shadow:0 30px 50px rgba(0,0,0,0.5);border:1px solid #333;position:relative;overflow:hidden;}
+        .report-container::before{content:'';position:absolute;top:0;left:0;width:100%;height:8px;background:linear-gradient(90deg,#004d98 0%,#a50044 50%,#edbb00 100%);}
+        .nav-menu{display:flex;gap:10px;margin-bottom:25px;flex-wrap:wrap;justify-content:center;}
+        .nav-link{display:inline-block;padding:10px 20px;background:#a50044;color:#edbb00;text-decoration:none;border-radius:50px;font-weight:700;font-size:0.95rem;border:2px solid #edbb00;transition:all 0.3s;}
+        .nav-link.active{background:#004d98;box-shadow:0 3px 0 #a50044;}
+        .match-header{text-align:center;margin-bottom:30px;}
+        .match-tournament-page{color:#edbb00;font-size:1.1rem;text-transform:uppercase;letter-spacing:2px;}
+        .match-date-page{color:#a0a0a0;margin:10px 0;}
+        .match-teams-page{font-size:2.5rem;font-weight:800;color:white;margin:15px 0;}
+        .match-score-page{font-size:3.5rem;font-weight:900;color:#edbb00;margin:10px 0;}
+        .match-location-page{color:#a0a0a0;font-size:1.1rem;}
+        
+        .section-title-page{font-size:1.8rem;font-weight:700;color:#edbb00;margin:40px 0 20px;border-bottom:2px solid #a50044;padding-bottom:8px;}
+        
+        .goals-list{list-style:none;padding:0;}
+        .goals-list li{background:rgba(255,255,255,0.03);border:1px solid #333;border-radius:15px;padding:12px 20px;margin-bottom:10px;color:white;font-size:1.1rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+        .goals-list strong{color:#edbb00;margin-right:10px;}
+        .goal-assist{color:#a0a0a0;font-size:0.9rem;margin-left:5px;}
+        .goal-assist::before{content:"(пас: ";color:#ffd700;}
+        .goal-assist::after{content:")";color:#ffd700;}
+        
+        .back-link{display:inline-block;margin-top:30px;padding:12px 30px;background:#004d98;color:white;text-decoration:none;border-radius:50px;font-weight:600;border:2px solid #edbb00;transition:0.3s;}
+        .back-link:hover{background:#a50044;}
+        .footer{text-align:center;color:#a0a0a0;margin-top:40px;padding-top:20px;border-top:1px solid #333;}
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <div class="nav-menu">
+            <a href="index.html" class="nav-link">СОСТАВ</a>
+            <a href="about.html" class="nav-link">О КОМАНДЕ</a>
+            <a href="matches.html" class="nav-link active">МАТЧИ</a>
+        </div>
+
+        <div class="match-header">
+            <div class="match-tournament-page">Товарищеский матч</div>
+            <div class="match-date-page">7 октября 2025</div>
+            <div class="match-teams-page">Blaugrana — Black Wolf</div>
+            <div class="match-score-page">2 : 6</div>
+            <div class="match-location-page">🏟 Стадион EVO</div>
+        </div>
+
+        <div class="section-title-page">⚽ Голы</div>
+        <ul class="goals-list">
+            <li><strong>6'</strong> Соперник</li>
+            <li><strong>9'</strong> Асланян Александр <span class="goal-assist">Коваленко Дмитрий</span></li>
+            <li><strong>17'</strong> Авдалян Арам <span class="goal-assist">Казарян Гагик</span></li>
+            <li><strong>34'</strong> Соперник</li>
+            <li><strong>46'</strong> Соперник</li>
+            <li><strong>51'</strong> Соперник</li>
+            <li><strong>53'</strong> Соперник</li>
+            <li><strong>54'</strong> Соперник</li>
+        </ul>
+
+        <a href="matches.html" class="back-link">← Назад к матчам</a>
+        <div class="footer">© 2025 Blaugrana</div>
+    </div>
+</body>
+</html>
