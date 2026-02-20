@@ -12,7 +12,6 @@
         .nav-menu{display:flex;gap:10px;margin-bottom:30px;flex-wrap:wrap;justify-content:center;}
         .nav-link{display:inline-block;padding:10px 20px;background:#a50044;color:#edbb00;text-decoration:none;border-radius:50px;font-weight:700;font-size:0.95rem;border:2px solid #edbb00;transition:all 0.3s;}
         .nav-link.active{background:#004d98;box-shadow:0 3px 0 #a50044;}
-
         .team-header{
             background: linear-gradient(145deg, #004d98, #a50044);
             border-radius: 25px;
@@ -22,7 +21,6 @@
             box-shadow: 0 0 30px rgba(237,187,0,0.3);
             text-align: center;
         }
-
         .team-name{
             font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 900;
@@ -31,8 +29,11 @@
             letter-spacing: 4px;
             text-shadow: 3px 3px 0 #004d98, 6px 6px 0 #a50044;
             line-height: 1.2;
+            white-space: nowrap;
+            overflow-x: auto;
+            max-width: 100%;
+            padding: 0 5px;
         }
-
         .team-motto{
             font-size: clamp(1.2rem, 4vw, 1.8rem);
             font-weight: 500;
@@ -42,15 +43,12 @@
             text-shadow: 1px 1px 0 rgba(0, 77, 152, 0.5);
             margin-top: 10px;
         }
-
         .section-title-wrapper{margin:30px 0 20px;}
         .section-title{font-size:clamp(1.6rem,5vw,2.2rem);font-weight:700;color:#edbb00;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:inline-block;text-shadow:2px 2px 0 rgba(0,77,152,0.3);}
         .stripes{width:100%;height:5px;display:flex;margin-top:5px;}
         .stripe-blue{height:100%;width:50%;background-color:#004d98;}
         .stripe-red{height:100%;width:50%;background-color:#a50044;}
-
         .players-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:15px;}
-
         .player-card{background:#1a1a2e;border-radius:20px;padding:15px;transition:all 0.3s ease;border:2px solid #edbb00;box-shadow:0 10px 20px rgba(0,0,0,0.3);display:flex;align-items:center;}
         .player-card:hover{transform:translateY(-3px);border-color:#ffffff;box-shadow:0 15px 30px rgba(237,187,0,0.4);}
         .player-card a{text-decoration:none;color:white;width:100%;display:flex;justify-content:space-between;align-items:center;}
@@ -59,9 +57,12 @@
         .player-name-card{font-size:clamp(1.3rem,4vw,1.8rem);font-weight:700;color:white;line-height:1.2;display:flex;flex-direction:column;}
         .player-name-card span{display:block;}
         .player-number{width:60px;height:60px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:800;color:#edbb00;border:2px solid #edbb00;box-shadow:0 0 15px rgba(237,187,0,0.3);flex-shrink:0;margin-left:10px;}
-
         .footer{text-align:center;color:#a0a0a0;margin-top:40px;padding-top:20px;border-top:1px solid #333;}
-
+        @media(max-width:500px){
+            .team-header{padding:20px 10px;}
+            .team-name{font-size:clamp(2rem,7vw,3rem);}
+        }
+        @media(max-width:360px){.team-name{font-size:1.8rem;letter-spacing:1px;}}
         @media(max-width:400px){.nav-menu{flex-direction:column;}.nav-link{width:100%;text-align:center;}.player-card{padding:12px;}.player-number{width:50px;height:50px;font-size:1.3rem;}}
     </style>
 </head>
@@ -73,7 +74,6 @@
             <a href="matches.html" class="nav-link">МАТЧИ</a>
             <a href="stats.html" class="nav-link">СТАТИСТИКА</a>
         </div>
-
         <div class="team-header">
             <div class="team-name">Blaugrana</div>
             <div class="team-motto">Més que un club</div>
