@@ -19,6 +19,7 @@
             overflow:hidden;
         }
         .about-container::before{content:'';position:absolute;top:0;left:0;width:100%;height:8px;background:linear-gradient(90deg,#004d98 0%,#a50044 50%,#edbb00 100%);}
+        
         .nav-menu{display:flex;gap:10px;margin-bottom:25px;flex-wrap:wrap;justify-content:center;}
         .nav-link{display:inline-block;padding:10px 20px;background:#a50044;color:#edbb00;text-decoration:none;border-radius:50px;font-weight:700;font-size:0.95rem;border:2px solid #edbb00;transition:all 0.3s;}
         .nav-link.active{background:#004d98;box-shadow:0 3px 0 #a50044;}
@@ -55,12 +56,32 @@
             margin-top:10px;
         }
         
-        .section-title{font-size:clamp(1.6rem,5vw,2.2rem);font-weight:700;color:#edbb00;text-transform:uppercase;letter-spacing:1px;margin:40px 0 20px;display:inline-block;text-shadow:2px 2px 0 rgba(0,77,152,0.3);}
-        .stripes{width:100%;height:5px;display:flex;margin-top:5px;margin-bottom:20px;}
+        .section-title{
+            font-size:clamp(1.6rem,5vw,2.2rem);
+            font-weight:700;
+            color:#edbb00;
+            text-transform:uppercase;
+            letter-spacing:1px;
+            margin:40px 0 10px;
+            display:inline-block;
+            text-shadow:2px 2px 0 rgba(0,77,152,0.3);
+        }
+        
+        .stripes{
+            width:100%;
+            height:5px;
+            display:flex;
+            margin-bottom:20px;
+        }
         .stripe-blue{height:100%;width:50%;background-color:#004d98;}
         .stripe-red{height:100%;width:50%;background-color:#a50044;}
         
-        .info-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-bottom:30px;}
+        .info-cards{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+            gap:15px;
+            margin-bottom:30px;
+        }
         .info-card{
             background:#1a1a2e;
             border:2px solid #edbb00;
@@ -72,6 +93,40 @@
         .info-card:hover{transform:translateY(-3px);border-color:#ffffff;}
         .info-label{font-size:0.8rem;text-transform:uppercase;color:#a0a0a0;letter-spacing:1px;margin-bottom:8px;}
         .info-value{font-size:clamp(1.2rem,4vw,1.6rem);font-weight:700;color:#edbb00;}
+
+        .record-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:20px;
+            margin-bottom:30px;
+        }
+        .record-card{
+            background:#1a1a2e;
+            border:2px solid #edbb00;
+            border-radius:20px;
+            padding:20px;
+            transition:0.3s;
+        }
+        .record-card:hover{transform:translateY(-3px);border-color:#ffffff;}
+        .record-title{
+            font-size:1.3rem;
+            font-weight:700;
+            color:#edbb00;
+            margin-bottom:10px;
+        }
+        .record-score{
+            font-size:2rem;
+            font-weight:800;
+            color:white;
+            margin:10px 0;
+        }
+        .record-details{
+            color:#a0a0a0;
+            font-size:1rem;
+            line-height:1.5;
+        }
+        .win .record-title{color:#4caf50;}
+        .loss .record-title{color:#f44336;}
         
         .history-text{
             background:#1a1a2e;
@@ -84,7 +139,13 @@
             font-size:1rem;
         }
         
-        .social-links{display:flex;justify-content:center;gap:15px;margin:30px 0;flex-wrap:wrap;}
+        .social-links{
+            display:flex;
+            justify-content:center;
+            gap:15px;
+            margin:30px 0;
+            flex-wrap:wrap;
+        }
         .social-link{
             background:#1a1a2e;
             border:2px solid #edbb00;
@@ -108,8 +169,9 @@
         }
         
         .footer{text-align:center;color:#a0a0a0;margin-top:40px;padding-top:20px;border-top:1px solid #333;}
-        @media(max-width:500px){.info-cards{grid-template-columns:1fr;}}
+        
         @media(max-width:600px){.nav-menu{flex-direction:column;}.nav-link{width:100%;text-align:center;}}
+        @media(max-width:700px){.record-grid{grid-template-columns:1fr;}}
     </style>
 </head>
 <body>
@@ -140,6 +202,31 @@
         <div class="stripes"><div class="stripe-blue"></div><div class="stripe-red"></div></div>
         <div class="empty-state">Список турниров появится позже</div>
 
+        <!-- ✅ САМАЯ КРУПНАЯ ПОБЕДА И ПОРАЖЕНИЕ -->
+        <div class="section-title">📊 РЕКОРДЫ КОМАНДЫ</div>
+        <div class="stripes"><div class="stripe-blue"></div><div class="stripe-red"></div></div>
+
+        <div class="record-grid">
+            <div class="record-card win">
+                <div class="record-title">🏆 САМАЯ КРУПНАЯ ПОБЕДА</div>
+                <div class="record-score">12 : 1</div>
+                <div class="record-details">
+                    🆚 Sedovka<br>
+                    🏟️ Товарищеский матч<br>
+                    📅 16 декабря 2025
+                </div>
+            </div>
+            <div class="record-card loss">
+                <div class="record-title">🥀 САМОЕ КРУПНОЕ ПОРАЖЕНИЕ</div>
+                <div class="record-score">2 : 6</div>
+                <div class="record-details">
+                    🆚 Black Wolf<br>
+                    🏟️ Товарищеский матч<br>
+                    📅 7 октября 2025
+                </div>
+            </div>
+        </div>
+
         <div class="section-title">📖 История команды</div>
         <div class="stripes"><div class="stripe-blue"></div><div class="stripe-red"></div></div>
         <div class="history-text">
@@ -157,4 +244,3 @@
     </div>
 </body>
 </html>
-
