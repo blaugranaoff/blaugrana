@@ -8,7 +8,7 @@
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,'Helvetica Neue',sans-serif;}
         body{background:linear-gradient(145deg,#0a0f1e 0%,#181c2e 100%);min-height:100vh;padding:15px;}
         .container{
-            max-width:1400px; /* чуть шире */
+            max-width:1400px;
             margin:0 auto;
             background:#1a1a2e;
             border-radius:30px;
@@ -41,7 +41,7 @@
         .stripes{width:100%;height:5px;display:flex;margin-top:5px;}
         .stripe-blue{height:100%;width:50%;background-color:#004d98;}
         .stripe-red{height:100%;width:50%;background-color:#a50044;}
-        .players-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:15px;} /* шире карточки */
+        .players-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:15px;}
         .player-card{background:#1a1a2e;border-radius:20px;padding:15px;transition:all 0.3s ease;border:2px solid #edbb00;box-shadow:0 10px 20px rgba(0,0,0,0.3);display:flex;align-items:center;}
         .player-card:hover{transform:translateY(-3px);border-color:#ffffff;box-shadow:0 15px 30px rgba(237,187,0,0.4);}
         .player-card a{text-decoration:none;color:white;width:100%;display:flex;justify-content:space-between;align-items:center;}
@@ -51,9 +51,7 @@
         .player-name-card span{display:block;}
         .player-number{width:60px;height:60px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:800;color:#edbb00;border:2px solid #edbb00;box-shadow:0 0 15px rgba(237,187,0,0.3);flex-shrink:0;margin-left:10px;}
         .footer{text-align:center;color:#a0a0a0;margin-top:40px;padding-top:20px;border-top:1px solid #333;}
-        @media(max-width:500px){
-            .players-grid{grid-template-columns:1fr;} /* на телефоне по одной */
-        }
+        @media(max-width:500px){.players-grid{grid-template-columns:1fr;}}
         @media(max-width:400px){.nav-menu{flex-direction:column;}.nav-link{width:100%;text-align:center;}}
     </style>
 </head>
