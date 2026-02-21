@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Матчи - Blaugrana</title>
+    <title>Новости - Blaugrana</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,'Helvetica Neue',sans-serif;}
         body{background:linear-gradient(145deg,#0a0f1e 0%,#181c2e 100%);min-height:100vh;padding:15px;}
@@ -20,7 +20,7 @@
         }
         .container::before{content:'';position:absolute;top:0;left:0;width:100%;height:8px;background:linear-gradient(90deg,#004d98 0%,#a50044 50%,#edbb00 100%);}
         
-        /* МЕНЮ (бургер) */
+        /* МЕНЮ */
         .nav-container{
             display:flex;
             justify-content:space-between;
@@ -119,83 +119,60 @@
         .stripe-blue{height:100%;width:50%;background-color:#004d98;}
         .stripe-red{height:100%;width:50%;background-color:#a50044;}
         
-        .empty-state{
-            background:#1a1a2e;
-            border:2px solid #edbb00;
-            border-radius:20px;
-            padding:30px 20px;
-            color:#a0a0a0;
-            text-align:center;
-            font-size:1.2rem;
-            margin-bottom:30px;
-        }
-        
-        .matches-grid{
+        .news-grid{
             display:grid;
-            grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+            grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
             gap:20px;
             margin-bottom:30px;
         }
-        .match-card{
+        .news-card{
             background:#1a1a2e;
-            border-radius:25px;
-            padding:20px;
             border:2px solid #edbb00;
-            box-shadow:0 10px 20px rgba(0,0,0,0.3);
+            border-radius:20px;
+            padding:20px;
             transition:0.3s;
-            display:flex;
-            flex-direction:column;
         }
-        .match-card:hover{
+        .news-card:hover{
             transform:translateY(-5px);
             border-color:#ffffff;
             box-shadow:0 15px 30px rgba(237,187,0,0.4);
         }
-        .match-date{
+        .news-date{
             color:#edbb00;
-            font-weight:600;
-            margin-bottom:8px;
-            font-size:1rem;
+            font-size:0.9rem;
+            margin-bottom:10px;
         }
-        .match-tournament{
-            color:#a0a0a0;
-            font-size:0.85rem;
-            text-transform:uppercase;
-            letter-spacing:1px;
-        }
-        .match-teams{
+        .news-title{
             font-size:1.5rem;
             font-weight:700;
             color:white;
-            margin:10px 0;
+            margin-bottom:10px;
         }
-        .match-score{
-            font-size:2rem;
-            font-weight:800;
-            color:#edbb00;
-            margin:10px 0;
-        }
-        .match-location{
+        .news-preview{
             color:#a0a0a0;
-            font-size:0.9rem;
+            line-height:1.5;
             margin-bottom:15px;
         }
-        .match-link{
-            display:inline-block;
-            padding:10px 20px;
-            background:#004d98;
-            color:white;
+        .news-link{
+            color:#edbb00;
             text-decoration:none;
-            border-radius:40px;
             font-weight:600;
-            border:2px solid #edbb00;
-            transition:0.3s;
-            text-align:center;
-            margin-top:10px;
+            border-bottom:2px solid #a50044;
+            padding-bottom:2px;
         }
-        .match-link:hover{
-            background:#a50044;
-            transform:translateY(-2px);
+        .news-link:hover{
+            color:#ffffff;
+        }
+        
+        .empty-state{
+            background:#1a1a2e;
+            border:2px solid #edbb00;
+            border-radius:20px;
+            padding:40px 20px;
+            color:#a0a0a0;
+            text-align:center;
+            font-size:1.2rem;
+            grid-column:1/-1;
         }
         
         .footer{text-align:center;color:#a0a0a0;margin-top:40px;padding-top:20px;border-top:1px solid #333;}
@@ -236,9 +213,9 @@
             <div class="burger" onclick="toggleMenu()">☰</div>
             <div class="nav-menu" id="navMenu">
                 <a href="index.html" class="nav-link">Главная</a>
-                <a href="news.html" class="nav-link">Новости</a>
+                <a href="news.html" class="nav-link active">Новости</a>
                 <a href="sostav.html" class="nav-link">Состав</a>
-                <a href="matches.html" class="nav-link active">Матчи</a>
+                <a href="matches.html" class="nav-link">Матчи</a>
                 <a href="stats.html" class="nav-link">Статистика</a>
             </div>
         </div>
@@ -248,92 +225,12 @@
             <div class="team-motto"></div>
         </div>
 
-        <!-- 📅 БУДУЩИЕ МАТЧИ (пусто) -->
-        <div class="section-title">📅 Будущие матчи</div>
-        <div class="stripes">
-            <div class="stripe-blue"></div>
-            <div class="stripe-red"></div>
-        </div>
-        <div class="empty-state">
-             Пока нет будущих матчей
-        </div>
+        <div class="section-title">📰 ПОСЛЕДНИЕ НОВОСТИ</div>
+        <div class="stripes"><div class="stripe-blue"></div><div class="stripe-red"></div></div>
 
-        <!-- ✅ ПРОШЕДШИЕ МАТЧИ -->
-        <div class="section-title">✅ Прошедшие матчи</div>
-        <div class="stripes">
-            <div class="stripe-blue"></div>
-            <div class="stripe-red"></div>
-        </div>
-
-        <div class="matches-grid">
-            <!-- 1️⃣ 25 декабря 2025 - Molodyozhka -->
-            <div class="match-card">
-                <div class="match-date">25 декабря 2025</div>
-                <div class="match-tournament">Товарищеский матч</div>
-                <div class="match-teams">Blaugrana — Molodyozhka</div>
-                <div class="match-score">11 : 6</div>
-                <div class="match-location">🏟️ Стадион EVO</div>
-                <a href="match_molodyozhka.html" class="match-link">Отчёт о матче →</a>
-            </div>
-
-            <!-- 2️⃣ 16 декабря 2025 - Sedovka -->
-            <div class="match-card">
-                <div class="match-date">16 декабря 2025</div>
-                <div class="match-tournament">Товарищеский матч</div>
-                <div class="match-teams">Blaugrana — Sedovka</div>
-                <div class="match-score">12 : 1</div>
-                <div class="match-location">🏟️ Стадион EVO</div>
-                <a href="match_sedovka.html" class="match-link">Отчёт о матче →</a>
-            </div>
-
-            <!-- 3️⃣ 25 ноября 2025 - Aurora -->
-            <div class="match-card">
-                <div class="match-date">25 ноября 2025</div>
-                <div class="match-tournament">Товарищеский матч</div>
-                <div class="match-teams">Blaugrana — Aurora</div>
-                <div class="match-score">7 : 3</div>
-                <div class="match-location">🏟️ Стадион EVO</div>
-                <a href="match_aurora.html" class="match-link">Отчёт о матче →</a>
-            </div>
-
-            <!-- 4️⃣ 11 ноября 2025 - Zapadniy Kray -->
-            <div class="match-card">
-                <div class="match-date">11 ноября 2025</div>
-                <div class="match-tournament">Товарищеский матч</div>
-                <div class="match-teams">Blaugrana — Zapadniy Kray</div>
-                <div class="match-score">6 : 4</div>
-                <div class="match-location">🏟️ Стадион Гребной канал Дон</div>
-                <a href="match_zapadniy.html" class="match-link">Отчёт о матче →</a>
-            </div>
-
-            <!-- 5️⃣ 22 октября 2025 - Sedovka -->
-            <div class="match-card">
-                <div class="match-date">22 октября 2025</div>
-                <div class="match-tournament">Товарищеский матч</div>
-                <div class="match-teams">Blaugrana — Sedovka</div>
-                <div class="match-score">3 : 9</div>
-                <div class="match-location">🏟️ Стадион EVO</div>
-                <a href="match_sedovka_2210.html" class="match-link">Отчёт о матче →</a>
-            </div>
-
-            <!-- 6️⃣ 7 октября 2025 - Black Wolf -->
-            <div class="match-card">
-                <div class="match-date">7 октября 2025</div>
-                <div class="match-tournament">Товарищеский матч</div>
-                <div class="match-teams">Blaugrana — Black Wolf</div>
-                <div class="match-score">2 : 6</div>
-                <div class="match-location">🏟️ Стадион EVO</div>
-                <a href="match_blackwolf.html" class="match-link">Отчёт о матче →</a>
-            </div>
-
-            <!-- 7️⃣ 3 октября 2025 - Sedovka -->
-            <div class="match-card">
-                <div class="match-date">3 октября 2025</div>
-                <div class="match-tournament">Товарищеский матч</div>
-                <div class="match-teams">Blaugrana — Sedovka</div>
-                <div class="match-score">8 : 6</div>
-                <div class="match-location">🏟️ Стадион EVO</div>
-                <a href="match_sedovka_0310.html" class="match-link">Отчёт о матче →</a>
+        <div class="news-grid">
+            <div class="empty-state">
+                📢 Пока нет новостей
             </div>
         </div>
 
