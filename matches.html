@@ -180,22 +180,66 @@
             font-size:0.9rem;
             margin-bottom:15px;
         }
-        .match-link{
+        .match-link, .squad-btn {
             display:inline-block;
             padding:10px 20px;
             background:#004d98;
             color:white;
             text-decoration:none;
             border-radius:40px;
-            font-weight:600;
+            font-weight:700;
+            font-size:1rem;
             border:2px solid #edbb00;
-            transition:0.3s;
+            transition:all 0.3s;
             text-align:center;
-            margin-top:10px;
+            margin:10px 0 5px;
+            width:100%;
+            box-sizing:border-box;
+            cursor:pointer;
         }
-        .match-link:hover{
+        .match-link:hover, .squad-btn:hover {
             background:#a50044;
             transform:translateY(-2px);
+        }
+        
+        /* Стили для заявки (скрыта по умолчанию) */
+        .match-squad {
+            margin: 15px 0 10px;
+            padding: 15px;
+            background: rgba(0, 77, 152, 0.1);
+            border-radius: 20px;
+            border: 1px solid #edbb00;
+            text-align: left;
+            display: none;
+        }
+
+        .match-squad.show {
+            display: block;
+        }
+
+        .squad-title {
+            color: #edbb00;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .squad-row {
+            color: white;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            padding-left: 5px;
+        }
+
+        .squad-pos {
+            color: #edbb00;
+            font-weight: 600;
+            margin-right: 8px;
+            display: inline-block;
+            min-width: 110px;
         }
         
         .footer{text-align:center;color:#a0a0a0;margin-top:40px;padding-top:20px;border-top:1px solid #333;}
@@ -248,15 +292,35 @@
             <div class="team-motto"></div>
         </div>
 
-        <!-- 📅 БУДУЩИЕ МАТЧИ (пусто) -->
+        <!-- 📅 БУДУЩИЕ МАТЧИ -->
         <div class="section-title">📅 Будущие матчи</div>
         <div class="stripes">
             <div class="stripe-blue"></div>
             <div class="stripe-red"></div>
         </div>
 
-        <div class="empty-state">
-            📅 Пока нет будущих матчей
+        <div class="matches-grid">
+            <!-- ===== БУДУЩИЙ МАТЧ С ЗАЯВКОЙ ===== -->
+            <div class="match-card future">
+                <div class="match-date">8 марта 2026 • 13:30</div>
+                <div class="match-tournament">Товарищеский матч</div>
+                <div class="match-teams">Blaugrana — Stadium</div>
+                <div class="match-location">🏟️ Стадион EVO</div>
+
+                <!-- Кнопка для показа заявки -->
+                <div class="squad-btn" onclick="toggleSquad(this)">📋 Заявка на матч</div>
+
+                <!-- Скрытая заявка (без эмодзи) -->
+                <div class="match-squad">
+                    <div class="squad-title">Заявка на матч</div>
+                    <div class="squad-row"><span class="squad-pos">Нападающие:</span> Авдалян Арам, Барнагян Владимир, Велян Владимир, Дограмаджян Тигран</div>
+                    <div class="squad-row"><span class="squad-pos">Полузащитники:</span> Хатламаджиян Мнацаган, Юрченко Тигран</div>
+                    <div class="squad-row"><span class="squad-pos">Защитники:</span> Асланян Александр, Казарян Гагик, Кароткиян Аршалуйс, Коваленко Дмитрий, Срабионян Ованес</div>
+                    <div class="squad-row"><span class="squad-pos">Вратари:</span> Хатламаджиян Дзарук</div>
+                </div>
+
+                <a href="#" class="match-link" target="_blank">📺 Смотреть трансляцию</a>
+            </div>
         </div>
 
         <!-- ✅ ПРОШЕДШИЕ МАТЧИ -->
@@ -358,6 +422,13 @@
                 document.getElementById('navMenu').classList.remove('show');
             });
         });
+
+        // Функция для показа/скрытия заявки
+        function toggleSquad(btn) {
+            const squad = btn.nextElementSibling;
+            squad.classList.toggle('show');
+            btn.textContent = squad.classList.contains('show') ? '📋 Скрыть заявку' : '📋 Заявка на матч';
+        }
     </script>
 </body>
 </html>
