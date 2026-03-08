@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Blaugrana vs Stadium - Отчёт</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,'Helvetica Neue',sans-serif;}
+        body{background:linear-gradient(145deg,#0a0f1e 0%,#181c2e 100%);min-height:100vh;padding:15px;display:flex;justify-content:center;align-items:center;}
+        .report-container{
+            max-width:900px;
+            width:100%;
+            background:#1a1a2e;
+            border-radius:30px;
+            padding:25px 20px;
+            box-shadow:0 30px 50px rgba(0,0,0,0.5);
+            border:2px solid #edbb00;
+            position:relative;
+            overflow:hidden;
+        }
+        .report-container::before{
+            content:'';
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:8px;
+            background:linear-gradient(90deg,#004d98 0%,#a50044 50%,#edbb00 100%);
+        }
+        
+        .back-button{
+            display:inline-block;
+            margin-bottom:25px;
+            padding:12px 30px;
+            background:#004d98;
+            color:white;
+            text-decoration:none;
+            border-radius:50px;
+            font-weight:600;
+            border:2px solid #edbb00;
+            transition:0.3s;
+        }
+        .back-button:hover{
+            background:#a50044;
+            transform:translateX(-5px);
+        }
+        
+        .match-header{
+            text-align:center;
+            margin-bottom:30px;
+        }
+        .match-tournament-page{
+            color:#edbb00;
+            font-size:1.1rem;
+            text-transform:uppercase;
+            letter-spacing:2px;
+        }
+        .match-date-page{
+            color:#a0a0a0;
+            margin:10px 0;
+        }
+        .match-teams-page{
+            font-size:2.5rem;
+            font-weight:800;
+            color:white;
+            margin:15px 0;
+        }
+        .match-score-page{
+            font-size:3.5rem;
+            font-weight:900;
+            color:#edbb00;
+            margin:10px 0;
+        }
+        .match-location-page{
+            color:#a0a0a0;
+            font-size:1.1rem;
+        }
+        
+        .section-title-page{
+            font-size:1.8rem;
+            font-weight:700;
+            color:#edbb00;
+            margin:40px 0 20px;
+            border-bottom:2px solid #a50044;
+            padding-bottom:8px;
+        }
+        
+        .goals-list{
+            list-style:none;
+            padding:0;
+        }
+        .goals-list li{
+            background:rgba(255,255,255,0.03);
+            border:1px solid #333;
+            border-radius:15px;
+            padding:12px 20px;
+            margin-bottom:10px;
+            color:white;
+            font-size:1.1rem;
+            display:flex;
+            align-items:center;
+            gap:10px;
+            flex-wrap:wrap;
+        }
+        .goals-list strong{
+            color:#edbb00;
+            margin-right:10px;
+        }
+        .goal-assist{
+            color:#a0a0a0;
+            font-size:0.9rem;
+            margin-left:5px;
+        }
+        .goal-assist::before{
+            content:"(пас: ";
+            color:#ffd700;
+        }
+        .goal-assist::after{
+            content:")";
+            color:#ffd700;
+        }
+        
+        .footer{
+            text-align:center;
+            color:#a0a0a0;
+            margin-top:40px;
+            padding-top:20px;
+            border-top:1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <a href="matches.html" class="back-button">← Назад к матчам</a>
+
+        <div class="match-header">
+            <div class="match-tournament-page">Товарищеский матч</div>
+            <div class="match-date-page">8 марта 2026</div>
+            <div class="match-teams-page">Blaugrana — Stadium</div>
+            <div class="match-score-page">5 : 2</div>
+            <div class="match-location-page">🏟️ Стадион EVO</div>
+        </div>
+
+        <div class="section-title-page">⚽ Голы</div>
+        <ul class="goals-list">
+            <li><strong>2'</strong> Владимир Велян <span class="goal-assist">Арам Авдалян</span></li>
+            <li><strong>6'</strong> Арам Авдалян <span class="goal-assist">Мнацаган Хатламаджиян</span></li>
+            <li><strong>25'</strong> Соперник</li>
+            <li><strong>31'</strong> Дмитрий Коваленко <span class="goal-assist">Владимир Барнагян</span></li>
+            <li><strong>38'</strong> Александр Асланян <span class="goal-assist">Мнацаган Хатламаджиян</span></li>
+            <li><strong>45'</strong> Арам Авдалян <span class="goal-assist">Аршалуйс Кароткиян</span></li>
+            <li><strong>59'</strong> Соперник</li>
+        </ul>
+
+        <div class="footer">© 2026 Blaugrana</div>
+    </div>
+</body>
+</html>
