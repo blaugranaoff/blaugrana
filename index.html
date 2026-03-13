@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
     <title>О команде - Blaugrana</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,'Helvetica Neue',sans-serif;}
@@ -111,10 +111,50 @@
             border: 4px solid #edbb00;
             box-shadow: 0 0 30px rgba(237,187,0,0.4);
             transition: transform 0.3s;
+            cursor: pointer;
         }
         .team-photo:hover{
             transform: scale(1.01);
             border-color: #ffffff;
+        }
+        
+        /* МОДАЛЬНОЕ ОКНО ДЛЯ ФОТО */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .modal.show {
+            display: flex;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border: 4px solid #edbb00;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(237,187,0,0.5);
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #edbb00;
+            font-size: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .close:hover {
+            color: white;
+            transform: scale(1.2);
         }
         
         .section-title{
@@ -300,9 +340,15 @@
             <div class="team-motto">Més que un club</div>
         </div>
 
-        <!-- ✅ ФОТО КОМАНДЫ -->
+        <!-- ✅ ФОТО КОМАНДЫ (теперь кликабельно) -->
         <div class="team-photo-block">
-            <img src="team-photo.jpg" alt="Команда Blaugrana" class="team-photo">
+            <img src="team-photo.jpg" alt="Команда Blaugrana" class="team-photo" onclick="openModal()">
+        </div>
+
+        <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ФОТО -->
+        <div id="photoModal" class="modal" onclick="closeModal(event)">
+            <span class="close" onclick="closeModal(event)">&times;</span>
+            <img class="modal-content" id="modalImage" src="team-photo.jpg">
         </div>
 
         <div class="info-cards">
@@ -351,6 +397,18 @@
                 document.getElementById('navMenu').classList.remove('show');
             });
         });
+
+        // Функции для модального окна
+        function openModal() {
+            document.getElementById('photoModal').classList.add('show');
+        }
+
+        function closeModal(event) {
+            // Закрываем, если кликнули на фон или на крестик
+            if (event.target.classList.contains('modal') || event.target.classList.contains('close')) {
+                document.getElementById('photoModal').classList.remove('show');
+            }
+        }
     </script>
 </body>
 </html>
