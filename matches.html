@@ -20,7 +20,6 @@
         }
         .container::before{content:'';position:absolute;top:0;left:0;width:100%;height:8px;background:linear-gradient(90deg,#004d98 0%,#a50044 50%,#edbb00 100%);}
         
-        /* МЕНЮ (бургер) */
         .nav-container{
             display:flex;
             justify-content:space-between;
@@ -189,17 +188,6 @@
             transform:translateY(-2px);
         }
         
-        .empty-state{
-            background:#1a1a2e;
-            border:2px solid #edbb00;
-            border-radius:20px;
-            padding:30px 20px;
-            color:#a0a0a0;
-            text-align:center;
-            font-size:1.2rem;
-            margin-bottom:30px;
-        }
-        
         .footer{text-align:center;color:#a0a0a0;margin-top:40px;padding-top:20px;border-top:1px solid #333;}
         
         @media(max-width:768px){
@@ -242,6 +230,7 @@
                 <a href="sostav.html" class="nav-link">Состав</a>
                 <a href="matches.html" class="nav-link active">Матчи</a>
                 <a href="stats.html" class="nav-link">Статистика</a>
+                <a href="tournament.html" class="nav-link">Турнир</a>
             </div>
         </div>
 
@@ -258,7 +247,14 @@
         </div>
 
         <div class="matches-grid">
-            <!-- Здесь пока пусто -->
+            <!-- 1️⃣ 14 марта 2026 - ФК Перевозчик (ЛИГА) -->
+            <div class="match-card future">
+                <div class="match-date">14 марта 2026 • 15:10</div>
+                <div class="match-tournament">EVO Regular 8 • 1 тур</div>
+                <div class="match-teams">Blaugrana — ФК Перевозчик</div>
+                <div class="match-location">🏟️ Гребной канал Дон</div>
+                <a href="#" class="match-link" target="_blank">📺 Смотреть трансляцию</a>
+            </div>
         </div>
 
         <!-- ✅ ПРОШЕДШИЕ МАТЧИ -->
@@ -269,7 +265,7 @@
         </div>
 
         <div class="matches-grid">
-            <!-- 1️⃣ 8 марта 2026 - Stadium (НОВЫЙ) -->
+            <!-- 1️⃣ 8 марта 2026 - Stadium -->
             <div class="match-card">
                 <div class="match-date">8 марта 2026</div>
                 <div class="match-tournament">Товарищеский матч</div>
