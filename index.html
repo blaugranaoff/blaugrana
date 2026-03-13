@@ -20,7 +20,7 @@
         }
         .container::before{content:'';position:absolute;top:0;left:0;width:100%;height:8px;background:linear-gradient(90deg,#004d98 0%,#a50044 50%,#edbb00 100%);}
         
-        /* ===== МЕНЮ ===== */
+        /* МЕНЮ */
         .nav-container{
             display:flex;
             justify-content:space-between;
@@ -98,6 +98,24 @@
             text-shadow:1px 1px 0 rgba(0,77,152,0.5);
             margin-top:10px;
         }
+
+        /* БЛОК С ФОТО КОМАНДЫ */
+        .team-photo-block{
+            margin: 30px 0 40px;
+            text-align: center;
+        }
+        .team-photo{
+            max-width: 100%;
+            max-height: 500px;
+            border-radius: 30px;
+            border: 4px solid #edbb00;
+            box-shadow: 0 0 30px rgba(237,187,0,0.4);
+            transition: transform 0.3s;
+        }
+        .team-photo:hover{
+            transform: scale(1.01);
+            border-color: #ffffff;
+        }
         
         .section-title{
             font-size:clamp(1.6rem,5vw,2.2rem);
@@ -137,39 +155,6 @@
         .info-label{font-size:0.8rem;text-transform:uppercase;color:#a0a0a0;letter-spacing:1px;margin-bottom:8px;}
         .info-value{font-size:clamp(1.2rem,4vw,1.6rem);font-weight:700;color:#edbb00;}
 
-        .record-grid{
-            display:grid;
-            grid-template-columns:1fr 1fr;
-            gap:20px;
-            margin-bottom:30px;
-        }
-        .record-card{
-            background:#1a1a2e;
-            border:2px solid #edbb00;
-            border-radius:20px;
-            padding:20px;
-            transition:0.3s;
-        }
-        .record-card:hover{transform:translateY(-3px);border-color:#ffffff;}
-        .record-title{
-            font-size:1.3rem;
-            font-weight:700;
-            color:#edbb00;
-            margin-bottom:10px;
-        }
-        .record-score{
-            font-size:2rem;
-            font-weight:800;
-            color:white;
-            margin:10px 0;
-        }
-        .record-details{
-            color:#a0a0a0;
-            font-size:1rem;
-            line-height:1.5;
-        }
-        
-        /* Стили для турниров */
         .tournaments-grid{
             display:grid;
             grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -263,7 +248,6 @@
         
         .footer{text-align:center;color:#a0a0a0;margin-top:40px;padding-top:20px;border-top:1px solid #333;}
         
-        /* ===== АДАПТАЦИЯ ===== */
         @media(max-width:768px){
             .burger{
                 display:block;
@@ -290,9 +274,10 @@
                 text-align:center;
                 margin:5px 0;
             }
+            .team-photo{
+                max-height: 300px;
+            }
         }
-        
-        @media(max-width:700px){.record-grid{grid-template-columns:1fr;}}
     </style>
 </head>
 <body>
@@ -315,6 +300,11 @@
             <div class="team-motto">Més que un club</div>
         </div>
 
+        <!-- ✅ ФОТО КОМАНДЫ -->
+        <div class="team-photo-block">
+            <img src="team-photo.jpg" alt="Команда Blaugrana" class="team-photo">
+        </div>
+
         <div class="info-cards">
             <div class="info-card"><div class="info-label">Год основания</div><div class="info-value">2025</div></div>
             <div class="info-card"><div class="info-label">Цвета клуба</div><div class="info-value">🔵🔴</div></div>
@@ -327,8 +317,6 @@
 
         <div class="section-title">Турниры</div>
         <div class="stripes"><div class="stripe-blue"></div><div class="stripe-red"></div></div>
-
-        <!-- НОВЫЙ БЛОК С ТУРНИРОМ -->
         <div class="tournaments-grid">
             <div class="tournament-card">
                 <div class="tournament-name">EVO Regular 8</div>
@@ -358,8 +346,6 @@
         function toggleMenu() {
             document.getElementById('navMenu').classList.toggle('show');
         }
-        
-        // Закрываем меню при клике на ссылку
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('navMenu').classList.remove('show');
