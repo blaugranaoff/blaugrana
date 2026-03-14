@@ -168,24 +168,33 @@
             font-size:0.9rem;
             margin-bottom:15px;
         }
-        .match-link, .squad-btn {
+        .match-link{
             display:inline-block;
             padding:10px 20px;
             background:#004d98;
             color:white;
             text-decoration:none;
             border-radius:40px;
-            font-weight:700;
-            font-size:1rem;
+            font-weight:600;
             border:2px solid #edbb00;
-            transition:all 0.3s;
+            transition:0.3s;
             text-align:center;
             margin-top:10px;
-            cursor:pointer;
         }
-        .match-link:hover, .squad-btn:hover {
+        .match-link:hover{
             background:#a50044;
             transform:translateY(-2px);
+        }
+        
+        .empty-state{
+            background:#1a1a2e;
+            border:2px solid #edbb00;
+            border-radius:20px;
+            padding:30px 20px;
+            color:#a0a0a0;
+            text-align:center;
+            font-size:1.2rem;
+            margin-bottom:30px;
         }
         
         .footer{text-align:center;color:#a0a0a0;margin-top:40px;padding-top:20px;border-top:1px solid #333;}
@@ -231,6 +240,7 @@
                 <a href="matches.html" class="nav-link active">Матчи</a>
                 <a href="stats.html" class="nav-link">Статистика</a>
                 <a href="tournament.html" class="nav-link">Турнир</a>
+                <a href="calendar.html" class="nav-link">Календарь</a>
             </div>
         </div>
 
@@ -246,15 +256,13 @@
             <div class="stripe-red"></div>
         </div>
 
-        <div class="matches-grid">
-            <!-- 1️⃣ 14 марта 2026 - ФК Перевозчик (ЛИГА) -->
-            <div class="match-card future">
-                <div class="match-date">14 марта 2026 • 15:10</div>
-                <div class="match-tournament">EVO Regular 8 • 1 тур</div>
-                <div class="match-teams">Blaugrana — ФК Перевозчик</div>
-                <div class="match-location">🏟️ Гребной канал Дон</div>
-                <a href="#" class="match-link" target="_blank">📺 Смотреть трансляцию</a>
+        <div class="empty-state" style="text-align: center; padding: 40px 20px;">
+            <div style="color: #edbb00; font-size: 1.2rem; margin-bottom: 15px;">
+                📅 Все матчи доступны в календаре
             </div>
+            <a href="calendar.html" class="match-link" style="display: inline-block; width: auto; padding: 12px 30px;">
+                Перейти в календарь →
+            </a>
         </div>
 
         <!-- ✅ ПРОШЕДШИЕ МАТЧИ -->
@@ -265,7 +273,17 @@
         </div>
 
         <div class="matches-grid">
-            <!-- 1️⃣ 8 марта 2026 - Stadium -->
+            <!-- 1️⃣ 14 марта 2026 - ФК Перевозчик (ЛИГА) -->
+            <div class="match-card">
+                <div class="match-date">14 марта 2026</div>
+                <div class="match-tournament">EVO Regular 8 • 1 тур</div>
+                <div class="match-teams">ФК Перевозчик — Blaugrana</div>
+                <div class="match-score">1 : 3</div>
+                <div class="match-location">🏟️ Гребной канал Дон</div>
+                <a href="match_perevozchik.html" class="match-link">Отчёт о матче →</a>
+            </div>
+
+            <!-- 2️⃣ 8 марта 2026 - Stadium -->
             <div class="match-card">
                 <div class="match-date">8 марта 2026</div>
                 <div class="match-tournament">Товарищеский матч</div>
@@ -275,7 +293,7 @@
                 <a href="match_stadium.html" class="match-link">Отчёт о матче →</a>
             </div>
 
-            <!-- 2️⃣ 1 марта 2026 - Kavabanga -->
+            <!-- 3️⃣ 1 марта 2026 - Kavabanga -->
             <div class="match-card">
                 <div class="match-date">1 марта 2026</div>
                 <div class="match-tournament">Товарищеский матч</div>
@@ -285,7 +303,7 @@
                 <a href="match_kavabanga.html" class="match-link">Отчёт о матче →</a>
             </div>
 
-            <!-- 3️⃣ 25 декабря 2025 - Molodyozhka -->
+            <!-- 4️⃣ 25 декабря 2025 - Molodyozhka -->
             <div class="match-card">
                 <div class="match-date">25 декабря 2025</div>
                 <div class="match-tournament">Товарищеский матч</div>
@@ -295,7 +313,7 @@
                 <a href="match_molodyozhka.html" class="match-link">Отчёт о матче →</a>
             </div>
 
-            <!-- 4️⃣ 16 декабря 2025 - Sedovka -->
+            <!-- 5️⃣ 16 декабря 2025 - Sedovka -->
             <div class="match-card">
                 <div class="match-date">16 декабря 2025</div>
                 <div class="match-tournament">Товарищеский матч</div>
@@ -305,7 +323,7 @@
                 <a href="match_sedovka.html" class="match-link">Отчёт о матче →</a>
             </div>
 
-            <!-- 5️⃣ 25 ноября 2025 - Aurora -->
+            <!-- 6️⃣ 25 ноября 2025 - Aurora -->
             <div class="match-card">
                 <div class="match-date">25 ноября 2025</div>
                 <div class="match-tournament">Товарищеский матч</div>
@@ -315,7 +333,7 @@
                 <a href="match_aurora.html" class="match-link">Отчёт о матче →</a>
             </div>
 
-            <!-- 6️⃣ 11 ноября 2025 - Zapadniy Kray -->
+            <!-- 7️⃣ 11 ноября 2025 - Zapadniy Kray -->
             <div class="match-card">
                 <div class="match-date">11 ноября 2025</div>
                 <div class="match-tournament">Товарищеский матч</div>
@@ -325,7 +343,7 @@
                 <a href="match_zapadniy.html" class="match-link">Отчёт о матче →</a>
             </div>
 
-            <!-- 7️⃣ 22 октября 2025 - Sedovka -->
+            <!-- 8️⃣ 22 октября 2025 - Sedovka -->
             <div class="match-card">
                 <div class="match-date">22 октября 2025</div>
                 <div class="match-tournament">Товарищеский матч</div>
@@ -335,7 +353,7 @@
                 <a href="match_sedovka_2210.html" class="match-link">Отчёт о матче →</a>
             </div>
 
-            <!-- 8️⃣ 7 октября 2025 - Black Wolf -->
+            <!-- 9️⃣ 7 октября 2025 - Black Wolf -->
             <div class="match-card">
                 <div class="match-date">7 октября 2025</div>
                 <div class="match-tournament">Товарищеский матч</div>
@@ -345,7 +363,7 @@
                 <a href="match_blackwolf.html" class="match-link">Отчёт о матче →</a>
             </div>
 
-            <!-- 9️⃣ 3 октября 2025 - Sedovka -->
+            <!-- 🔟 3 октября 2025 - Sedovka -->
             <div class="match-card">
                 <div class="match-date">3 октября 2025</div>
                 <div class="match-tournament">Товарищеский матч</div>
