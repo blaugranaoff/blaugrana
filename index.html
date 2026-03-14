@@ -20,7 +20,6 @@
         }
         .container::before{content:'';position:absolute;top:0;left:0;width:100%;height:8px;background:linear-gradient(90deg,#004d98 0%,#a50044 50%,#edbb00 100%);}
         
-        /* МЕНЮ */
         .nav-container{
             display:flex;
             justify-content:space-between;
@@ -99,62 +98,22 @@
             margin-top:10px;
         }
 
-        /* БЛОК С ФОТО КОМАНДЫ */
         .team-photo-block{
-            margin: 30px 0 40px;
-            text-align: center;
+            margin:30px 0 40px;
+            text-align:center;
         }
         .team-photo{
-            max-width: 100%;
-            max-height: 500px;
-            border-radius: 30px;
-            border: 4px solid #edbb00;
-            box-shadow: 0 0 30px rgba(237,187,0,0.4);
-            transition: transform 0.3s;
-            cursor: pointer;
+            max-width:100%;
+            max-height:500px;
+            border-radius:30px;
+            border:4px solid #edbb00;
+            box-shadow:0 0 30px rgba(237,187,0,0.4);
+            transition:transform 0.3s;
+            cursor:pointer;
         }
         .team-photo:hover{
-            transform: scale(1.01);
-            border-color: #ffffff;
-        }
-        
-        /* МОДАЛЬНОЕ ОКНО ДЛЯ ФОТО */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-        .modal.show {
-            display: flex;
-        }
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            border: 4px solid #edbb00;
-            border-radius: 20px;
-            box-shadow: 0 0 50px rgba(237,187,0,0.5);
-        }
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #edbb00;
-            font-size: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .close:hover {
-            color: white;
-            transform: scale(1.2);
+            transform:scale(1.01);
+            border-color:#ffffff;
         }
         
         .section-title{
@@ -288,6 +247,7 @@
         
         .footer{text-align:center;color:#a0a0a0;margin-top:40px;padding-top:20px;border-top:1px solid #333;}
         
+        /* ===== АДАПТАЦИЯ ===== */
         @media(max-width:768px){
             .burger{
                 display:block;
@@ -314,8 +274,14 @@
                 text-align:center;
                 margin:5px 0;
             }
+            .section-title{
+                font-size:1.4rem;
+            }
+            .info-cards, .tournaments-grid{
+                grid-template-columns:1fr;
+            }
             .team-photo{
-                max-height: 300px;
+                max-height:300px;
             }
         }
     </style>
@@ -341,15 +307,8 @@
             <div class="team-motto">Més que un club</div>
         </div>
 
-        <!-- ✅ ФОТО КОМАНДЫ (теперь кликабельно) -->
         <div class="team-photo-block">
-            <img src="team-photo.jpg" alt="Команда Blaugrana" class="team-photo" onclick="openModal()">
-        </div>
-
-        <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ФОТО -->
-        <div id="photoModal" class="modal" onclick="closeModal(event)">
-            <span class="close" onclick="closeModal(event)">&times;</span>
-            <img class="modal-content" id="modalImage" src="team-photo.jpg">
+            <img src="team-photo.jpg" alt="Команда Blaugrana" class="team-photo">
         </div>
 
         <div class="info-cards">
@@ -398,18 +357,6 @@
                 document.getElementById('navMenu').classList.remove('show');
             });
         });
-
-        // Функции для модального окна
-        function openModal() {
-            document.getElementById('photoModal').classList.add('show');
-        }
-
-        function closeModal(event) {
-            // Закрываем, если кликнули на фон или на крестик
-            if (event.target.classList.contains('modal') || event.target.classList.contains('close')) {
-                document.getElementById('photoModal').classList.remove('show');
-            }
-        }
     </script>
 </body>
 </html>
