@@ -118,7 +118,7 @@
         
         .calendar-grid{
             display:grid;
-            grid-template-columns:repeat(auto-fill,minmax(360px,1fr));
+            grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
             gap:20px;
             margin-bottom:30px;
         }
@@ -132,7 +132,7 @@
             transition:0.3s;
             display:flex;
             flex-direction:column;
-            min-height:280px;
+            min-height:260px;
         }
         .match-card:hover{
             transform:translateY(-3px);
@@ -163,6 +163,7 @@
             align-items:center;
             justify-content:space-between;
             margin:15px 0;
+            gap:5px;
         }
         .team-block{
             display:flex;
@@ -170,6 +171,7 @@
             align-items:center;
             gap:8px;
             width:120px;
+            flex-shrink:0;
         }
         .team-logo{
             width:60px;
@@ -184,12 +186,15 @@
             font-weight:600;
             color:white;
             text-align:center;
-            white-space:nowrap;
+            white-space:normal;
+            word-break:break-word;
+            line-height:1.2;
         }
         .vs-block{
             display:flex;
             align-items:center;
-            gap:10px;
+            gap:8px;
+            flex-shrink:0;
         }
         .vs{
             font-size:1.2rem;
@@ -200,7 +205,7 @@
             font-size:1.8rem;
             font-weight:800;
             color:#edbb00;
-            min-width:40px;
+            min-width:35px;
             text-align:center;
         }
         
@@ -235,15 +240,46 @@
             .league-title{
                 font-size:1.8rem;
             }
+            .calendar-grid{
+                grid-template-columns:1fr;
+            }
+            .match-card{
+                min-height:auto;
+                padding:12px;
+            }
             .team-logo{
                 width:45px;
                 height:45px;
             }
             .team-block{
-                width:90px;
+                width:100px;
             }
             .team-name-small{
-                font-size:0.8rem;
+                font-size:0.75rem;
+            }
+            .score{
+                font-size:1.3rem;
+                min-width:30px;
+            }
+            .vs{
+                font-size:1rem;
+            }
+        }
+
+        @media(max-width:400px){
+            .team-block{
+                width:80px;
+            }
+            .team-logo{
+                width:40px;
+                height:40px;
+            }
+            .team-name-small{
+                font-size:0.7rem;
+            }
+            .score{
+                font-size:1.1rem;
+                min-width:25px;
             }
         }
     </style>
