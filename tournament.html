@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>EVO Regular 8 - Blaugrana</title>
+    <title>Турнирная таблица - Blaugrana</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,'Helvetica Neue',sans-serif;}
         body{background:linear-gradient(145deg,#0a0f1e 0%,#181c2e 100%);min-height:100vh;padding:15px;}
@@ -144,7 +144,6 @@
             text-align:center;
             color:white;
             border-bottom:1px solid #333;
-            vertical-align:middle;
         }
         
         tr:last-child td{
@@ -211,6 +210,10 @@
             .team-logo{
                 width:25px;
                 height:25px;
+            }
+            th, td{
+                padding:8px 4px;
+                font-size:0.8rem;
             }
         }
     </style>
@@ -343,7 +346,6 @@
                     <thead>
                         <tr>
                             <th>№</th>
-                            <th>Лого</th>
                             <th>Команда</th>
                             <th>И</th>
                             <th>В</th>
@@ -362,14 +364,13 @@
                 let rowClass = team.name === "Blaugrana" ? 'class="blaugrana-row"' : '';
                 let logoFile = getLogoFile(team.name);
                 let logoHtml = logoFile ? 
-                    `<img src="${logoFile}" class="team-logo" alt="лого" onerror="this.style.display='none'">` : 
+                    `<img src="${logoFile}" class="team-logo" onerror="this.style.display='none'">` : 
                     `<span style="color:#edbb00;">⚽</span>`;
                 
                 html += `
                     <tr ${rowClass}>
                         <td>${index + 1}</td>
-                        <td>${logoHtml}</td>
-                        <td class="team-name-cell">${team.name}</td>
+                        <td class="team-name-cell">${logoHtml} ${team.name}</td>
                         <td>${team.played}</td>
                         <td>${team.wins}</td>
                         <td>${team.draws}</td>

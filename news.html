@@ -20,7 +20,6 @@
         }
         .container::before{content:'';position:absolute;top:0;left:0;width:100%;height:8px;background:linear-gradient(90deg,#004d98 0%,#a50044 50%,#edbb00 100%);}
         
-        /* МЕНЮ */
         .nav-container{
             display:flex;
             justify-content:space-between;
@@ -192,6 +191,9 @@
                 text-align:center;
                 margin:5px 0;
             }
+            .news-grid{
+                grid-template-columns:1fr;
+            }
         }
     </style>
 </head>
@@ -213,37 +215,34 @@
 
         <div class="team-header">
             <div class="team-name">Blaugrana</div>
-            <div class="team-motto">Més que un club</div>
+            <div class="team-motto"></div>
         </div>
 
         <div class="section-title">📰 ПОСЛЕДНИЕ НОВОСТИ</div>
         <div class="stripes"><div class="stripe-blue"></div><div class="stripe-red"></div></div>
 
         <div class="news-grid">
-<!-- 14 марта 2026 - Первый тур лиги -->
-<div class="news-card">
-    <div class="news-date">14 марта 2026</div>
-    <div class="news-title">Стартуем в лиге! 🔥</div>
-    <div class="news-preview">
-        Мы официально заявились в лигу <strong>EVO Regular 8</strong>!<br><br>
-        Уже сегодня нас ждёт первый тур:<br>
-        🆚 <strong>ФК Перевозчик</strong><br>
-        ⏰ 15:10<br>
-        🏟️ Гребной канал Дон<br><br>
-        Поддержите команду в первом официальном матче! 💙❤️
-    </div>
-    <a href="matches.html" class="news-link">📅 Все матчи →</a>
-</div>
-            <!-- НОВОСТЬ: Новый игрок -->
+            <!-- 14 марта 2026 - Первый тур лиги -->
             <div class="news-card">
-                <div class="news-date">20 февраля 2026</div>
-                <div class="news-title">Новый игрок команды!</div>
+                <div class="news-date">14 марта 2026</div>
+                <div class="news-title">Победа в первом туре! 🔥</div>
                 <div class="news-preview">
-                    В нашей команде появился новый игрок — Бахмацкий Семён. 
-                    У этого парня большой потенциал с учётом его возраста. 
-                    Надеемся, что он добьётся большого продвижения в своей футбольной карьере.
+                    Мы выиграли первый матч в лиге EVO Regular 8!<br>
+                    ФК Перевозчик 1 : 3 Blaugrana<br>
+                    Голы: Тигран Юрченко (2), Дмитрий Коваленко
                 </div>
-                <a href="bakhmatskiy_semyon.html" class="news-link">Подробнее о Семёне →</a>
+                <a href="match_perevozchik.html" class="news-link">Отчёт о матче →</a>
+            </div>
+
+            <!-- 8 марта 2026 - Stadium -->
+            <div class="news-card">
+                <div class="news-date">8 марта 2026</div>
+                <div class="news-title">С 8 Марта! 🌸</div>
+                <div class="news-preview">
+                    Поздравляем всех прекрасных болельщиц с праздником!<br>
+                    А в матче со Stadium мы одержали победу 5:2.
+                </div>
+                <a href="match_stadium.html" class="news-link">Отчёт о матче →</a>
             </div>
         </div>
 
